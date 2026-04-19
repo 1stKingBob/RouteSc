@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { NSW_ROUTES } from '@/lib/mockData'
 
-const BACKEND = process.env.BACKEND_URL ?? 'http://localhost:8000'
+const BACKEND = process.env.BACKEND_URL ?? 'https://routescout-j0o4.onrender.com/'
 
 function snakeToCamel(r: Record<string, unknown>) {
   const stops = ((r.stops ?? []) as Record<string, unknown>[]).map((s) => ({
