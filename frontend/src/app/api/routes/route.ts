@@ -37,7 +37,7 @@ export async function GET(req: NextRequest) {
   try {
     const url = q
       ? `${BACKEND}/routes/search?q=${encodeURIComponent(q)}&limit=100`
-      : `${BACKEND}/routes?limit=500`
+      : `${BACKEND}/routes/?limit=500`
 
     const res = await fetch(url, { next: { revalidate: 30 }, signal: AbortSignal.timeout(4000) })
     if (!res.ok) throw new Error(`Backend ${res.status}`)
