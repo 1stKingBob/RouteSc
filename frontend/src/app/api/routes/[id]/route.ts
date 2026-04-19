@@ -33,12 +33,12 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   const { id } = params
   try {
     // Try by ID first, then by route number
-    let res = await fetch(`${BACKEND}/routes/${encodeURIComponent(id)}`, {
+    let res = await fetch(`${BACKEND}/routes/${encodeURIComponent(id)/}`, {
       next: { revalidate: 60 },
       signal: AbortSignal.timeout(4000),
     })
     if (!res.ok) {
-      res = await fetch(`${BACKEND}/routes/number/${encodeURIComponent(id)}`, {
+      res = await fetch(`${BACKEND}/routes/number/${encodeURIComponent(id)/}`, {
         next: { revalidate: 60 },
         signal: AbortSignal.timeout(4000),
       })
